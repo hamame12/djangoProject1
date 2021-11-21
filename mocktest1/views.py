@@ -23,4 +23,4 @@ def copy_project(request, pid):
     project = DB_project.objects.filter(id=pid).values()
     DB_project.objects.create(name=project.values()[0]['name'], creater=project.values()[0]['creater']).save()
     return HttpResponseRedirect('/project_list/')
-123
+1231123

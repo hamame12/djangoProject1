@@ -26,4 +26,10 @@ urlpatterns = [
     path('welcome/', welcome),
     re_path(r'del_project/(?P<pid>.+)', del_project),
     re_path(r'copy_project/(?P<pid>.+)', copy_project),
+    path('login/', login), #访问登陆页面
+    path('', login, name="home"),#默认登录页面
+    re_path(r'^accounts/login/$', login),#没有登录时，访问其他网址默认跳转到登录页面
+    path('sign_in_action/', login_action),#登录时请求
+    path('sign_up_action',register_action),#注册时请求
+
 ]

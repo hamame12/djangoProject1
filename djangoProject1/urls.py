@@ -22,14 +22,16 @@ from mocktest1.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('project_list/', get_project_list),
+    path('project_list/', get_project_list),  # 项目列表界面
     path('welcome/', welcome),
-    re_path(r'del_project/(?P<pid>.+)', del_project),
-    re_path(r'copy_project/(?P<pid>.+)', copy_project),
-    path('login/', login), #访问登陆页面
-    path('', login, name="home"),#默认登录页面
-    re_path(r'^accounts/login/$', login),#没有登录时，访问其他网址默认跳转到登录页面
-    path('sign_in_action/', login_action),#登录时请求
-    path('sign_up_action',register_action),#注册时请求
+    re_path(r'del_project/(?P<pid>.+)', del_project),  # 删除项目
+    re_path(r'copy_project/(?P<pid>.+)', copy_project),  # 复制项目
+    path('login/', login),  # 访问登陆页面
+    path('', login, name="home"),  # 默认登录页面
+    re_path(r'^accounts/login/$', login),  # 没有登录时，访问其他网址默认跳转到登录页面
+    path('sign_in_action/', login_action),  # 登录时请求
+    path('send_mail_code/', send_mail_code_action),  # 发送验证码邮件
+    path('sign_up_action/', register_action),  # 注册时请求
+    re_path(r'.+/logout/', logout),  # 登陆注销时请求
 
 ]
